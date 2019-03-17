@@ -6,5 +6,111 @@
         <meta name="keywords" content="php, string pallindrome, pallindrome string, check pallindrome php">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /*Reset CSS*/
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                max-width: 1440px;
+                margin: 0 auto;
+            }
+
+            header {
+                background: #f2709c;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to bottom, #ff9472, #f2709c);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to bottom, #ff9472, #f2709c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                padding: 10px 5px;
+                min-height: 20vh;
+                display: flex;
+                align-items: center;
+                align-content: center;
+            }
+
+            header h1 {
+                text-align: center;
+                color: #ffebcd;
+                font-size: 30px;
+                width: 100%;
+            }
+
+            .main_section {
+                display: flex;
+                align-content: flex-start;
+                align-items: center;
+                flex-flow: row;
+                flex-wrap: wrap;
+                min-height: 80vh;
+            }
+
+            main {
+                flex-grow: 2;
+                padding: 1% 2%;
+            }
+
+            main img {
+                display: block;
+                margin: 20px auto;
+                height: auto;
+                width: 100%;
+            }
+
+            aside {
+                background: #f7f7f7;
+                flex-grow: 1;
+            }
+
+            aside > pre {
+                padding: 10px;
+            }
+
+        </style>
     </head>
+    <body>
+        <header>
+            <h1>Check if given string is palindrome or not, using PHP</h1>
+        </header>
+        <section class="main_section">
+            <main>
+                <img src="../images/check_palindrome.png" alt="check string palindrome or nit" class="screenshot">
+            </main>
+            <aside>
+                <h3>Get the code!!</h3>
+                <pre class="prettyprint">
+                    <code>
+function isPalindrome($input)
+{
+    if (empty($input) || !is_string($input)) {
+        echo "Invalid input provided!\n";
+        return false;
+    }
+
+    $sanitizedInput = strtolower($input);
+    $length = strlen($input);
+
+    $limit = intval(($length % 2 == 0) ? $length / 2 : (int)$length / 2 - 1);
+
+    for ($i = 0; $i <= $limit; $i++) {
+        if ($sanitizedInput[$i] != $sanitizedInput[$length - 1 - $i]) {
+            echo $input . ": is not a palindrome.\n";
+            return false;
+        }
+    }
+
+    echo $input . ": is a palindrome.\n";
+    return true;
+}
+
+isPalindrome('hello');
+isPalindrome('Woow');
+isPalindrome('tattarrattat');
+                    </code>
+                </pre>
+            </aside>
+        </section>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+    </body>
 </html>

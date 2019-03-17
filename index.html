@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Daily Dose of PHP</title>
+        <meta name="descroption" content="Get your daily dose of PHP snippets. Anwers to your PHP problems!">
+        <meta name="keywords" content="php, solve php problems, php questions, php question with answer">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /*Reset CSS*/
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                max-width: 1440px;
+                margin: 0 auto;
+            }
+            
+            header {
+                background: #f2709c;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to bottom, #ff9472, #f2709c);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to bottom, #ff9472, #f2709c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                padding: 10px 5px;
+                min-height: 20vh;
+                display: flex;
+                align-items: center;
+                align-content: center;
+            }
+
+            header h1 {
+                text-align: center;
+                color: #ffebcd;
+                font-size: 30px;
+                width: 100%;
+            }
+
+            .main_section {
+                display: flex;
+                align-content: flex-start;
+                flex-flow: row;
+                flex-wrap: wrap;
+                min-height: 80vh;
+            }
+
+            main {
+                background: #efeeee;
+                flex-grow: 2;
+                padding: 1% 2%;
+            }
+
+            aside {
+                background: #f7f7f7;
+                flex-grow: 1;
+            }
+
+            aside img {
+                display: block;
+                margin: 20px auto;
+                max-height: 400px;
+                width: auto;
+            }
+
+            aside h3 {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            ol {
+                display: block;
+                text-align: left;
+                margin-left: 20px;
+            }
+
+            ol lh {
+                margin: 10px 0 10px -15px;
+                display: block;
+                text-align: center;
+                width: 100%;
+                border-bottom: #f2709c 1px solid;
+                font-weight: bolder;
+                font-size: 20px;
+            }
+
+            ol li {
+                margin: 10px 0;
+            }
+
+            ol li > a {
+                color: inherit;
+                font-weight: bolder;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            ol li:nth-child(odd) {
+                color: #860022;
+            }
+            
+            ol li:nth-child(even) {
+                color: #b9114f;
+            }
+
+            .tags {
+                margin-left: 5px;
+                text-transform: capitalize;
+                color: #5f9ea0;
+                border: 1px solid #5f9ea0;
+                border-radius: 14px;
+                padding: 2px 3px;
+                font-size: 14px;
+                transition: background-color 0.5s ease, color 0.3s ease;
+            }
+
+            .tags:hover {
+                background-color: #5f9ea0;
+                color: #f7f7f7;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Lets solve some problems using PHP!</h1>
+        </header>
+        <section class="main_section">
+            <main>
+                <ol>
+                    <lh>Lets Roll!!</lh>
+                    <li><a href="/illustrator/check_palindrome.html">Check if given string is palindrome or not?</a><span class="tags">recursive</span></li>
+                </ol>
+            </main>
+            <aside>
+                <h3>Want something to chuckle about</h3>
+                <img src="images/memes/php.jpg" alt="php funny meme">
+            </aside>
+        </section>
+    </body>
+</html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Check if the given string is palindrome or not?</title>
-        <meta name="descroption" content="How to check whether the given string is pallindrome or not?">
+        <title>Get single index of character, after removing which the string will be palindrome</title>
+        <meta name="descroption" content="Get single index of character, after removing which the string will be palindrome">
         <meta name="keywords" content="php, string pallindrome, pallindrome string, check pallindrome php">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,8 +54,9 @@
             main img {
                 display: block;
                 margin: 20px auto;
-                height: auto;
-                width: 100%;
+                height: 80vh;
+                width: auto;
+                max-width: 60vw;
             }
 
             aside {
@@ -75,38 +76,43 @@
         </header>
         <section class="main_section">
             <main>
-                <img src="../images/check_palindrome.png" alt="check string palindrome or not" class="screenshot">
+                <img src="../images/get_palindrome_index.png" alt="get palindrome index" class="screenshot">
             </main>
             <aside>
                 <h3>Get the code!!</h3>
                 <pre class="prettyprint">
                     <code>
-function isPalindrome($input)
+function palindromeIndex($s)
 {
-    if (empty($input) || !is_string($input)) {
-        echo "Invalid input provided!\n";
-        return false;
+    $output = -1;
+    if (empty($s) || !is_string($s))
+        return $output;
+
+    $length = strlen($s);
+
+    if ($length < 1 || $length > 100005)
+        return $output;
+
+    $limit = intval($length / 2);
+    for ($i = 0; $i < $limit; $i++) {
+        if ($s[$i] == $s[$length - 1 - $i])
+            continue;
+        $tempString1 = substr($s, 0, $i) . substr($s, $i + 1);
+        $tempString2 = substr($s, 0, $length - 1 - $i) . substr($s, ($length - 1 - $i) + 1);
+        if ($tempString1 == strrev($tempString1))
+            $output = $i;
+        else if ($tempString2 == strrev($tempString2))
+            $output = $length - 1 - $i;
+
+        break;
     }
 
-    $sanitizedInput = strtolower($input);
-    $length = strlen($input);
-
-    $limit = intval(($length % 2 == 0) ? $length / 2 : (int)$length / 2 - 1);
-
-    for ($i = 0; $i <= $limit; $i++) {
-        if ($sanitizedInput[$i] != $sanitizedInput[$length - 1 - $i]) {
-            echo $input . ": is not a palindrome.\n";
-            return false;
-        }
-    }
-
-    echo $input . ": is a palindrome.\n";
-    return true;
+    return $output;
 }
 
-isPalindrome('hello');
-isPalindrome('Woow');
-isPalindrome('tattarrattat');
+palindromeIndex('aaab');
+palindromeIndex('baa');
+palindromeIndex('aaa');
                     </code>
                 </pre>
             </aside>

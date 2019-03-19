@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get word count for the given camelCase string</title>
+    <meta name="descroption" content="Get word count for the given camelCase string">
+    <meta name="keywords" content="php, string, camelCase count">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /*Reset CSS*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #f2709c;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #ff9472, #f2709c);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #ff9472, #f2709c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            padding: 10px 5px;
+            min-height: 20vh;
+            display: flex;
+            align-items: center;
+            align-content: center;
+        }
+
+        header h1 {
+            text-align: center;
+            color: #ffebcd;
+            font-size: 30px;
+            width: 100%;
+        }
+
+        .main_section {
+            display: flex;
+            align-content: flex-start;
+            align-items: center;
+            flex-flow: row;
+            flex-wrap: wrap;
+            min-height: 80vh;
+        }
+
+        main {
+            flex-grow: 2;
+            padding: 1% 2%;
+        }
+
+        main img {
+            display: block;
+            margin: 20px auto;
+            height: auto;
+            width: 100%;
+        }
+
+        aside {
+            background: #333;
+            flex-grow: 1;
+            overflow: scroll;
+        }
+
+        aside h3 {
+            color: #f7f7f7;
+        }
+
+        aside > pre {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Get word count for the given camelCase string</h1>
+</header>
+<section class="main_section">
+    <main>
+        <img src="../images/camelcase_word_count.png" alt="Get word count for the given camelCase string" class="screenshot">
+    </main>
+    <aside>
+        <h3>Get the code!!</h3>
+        <pre class="prettyprint">
+                    <code>
+function camelcase($s)
+{
+    if (empty($s) || !is_string($s))
+        return 0;
+    $length = strlen($s);
+    if ($length < 1 || $length > 100000)
+        return 0;
+    preg_match_all('/[A-Z]+/m', $s, $matches, PREG_SET_ORDER, 0);
+
+    $wordCount = count($matches) + 1;
+    if (!empty($matches) && strpos($s, $matches[0][0]) == 0)
+        return 0;
+    return $wordCount;
+}
+                    </code>
+                </pre>
+    </aside>
+</section>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+</body>
+</html>

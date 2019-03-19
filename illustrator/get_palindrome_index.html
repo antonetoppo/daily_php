@@ -54,8 +54,8 @@
             main img {
                 display: block;
                 margin: 20px auto;
-                width: 100%;
-                height: auto;
+                height: 80vh;
+                width: auto;
             }
 
             aside {
@@ -70,6 +70,13 @@
 
             aside > pre {
                 padding: 10px;
+            }
+
+            @media only screen and (max-width: 640px) {
+                main img {
+                    height: auto;
+                    width: 100%;
+                }
             }
 
         </style>
